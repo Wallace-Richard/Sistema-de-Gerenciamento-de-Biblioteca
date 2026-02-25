@@ -1,7 +1,5 @@
 package br.com.wallace.biblioteca.model;
 
-import java.security.PrivateKey;
-
 public class Livro {
     private String titulo;
     private int anoPublicacao;
