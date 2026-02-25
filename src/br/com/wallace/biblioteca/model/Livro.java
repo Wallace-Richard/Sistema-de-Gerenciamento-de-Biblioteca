@@ -7,7 +7,12 @@ public class Livro {
     private int anoPublicacao;
     private Autor autor;
     private boolean situacao = true;
-    private int id;
+    private static int counter = 0;
+    private int id = counter;
+
+    {
+        counter++;
+    }
 
     public Livro(String titulo, int anoPublicacao, Autor autor) {
         this.titulo = titulo;
