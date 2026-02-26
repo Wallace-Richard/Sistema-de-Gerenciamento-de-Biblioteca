@@ -38,13 +38,50 @@ public class Biblioteca {
         }
     }
 
-
-    public void emprestarLivro(int id){
-        livros[id-1].setDisponivel(false);
+    public void cadastrarLivro(Livro livro) {
+        if (livros.length < counter + 1)
+        {
+            System.out.println("Atingido o limite de espaço para cadastramento de livros!");
+            return;
+        }
+        this.livros[counter] = livro;
+        counter++;
     }
 
-    public void disponibilizarLivro(int id){
-        livros[id-1].setDisponivel(true);
+    public void emprestarLivro(int id) {
+        switch (id)
+        {
+            case 1, 2, 3, 4, 5:
+                if (livros[id - 1].getTitulo() == null)
+                {
+                    System.out.println("ID inexistente!");
+                    return;
+                }
+                livros[id - 1].setDisponivel(false);
+                System.out.println("Livro emprestado com sucesso!");
+                return;
+            default:
+                System.out.println("ID invalido tente novamente!");
+                return;
+        }
+    }
+
+    public void disponibilizarLivro(int id) {
+        switch (id)
+        {
+            case 1, 2, 3, 4, 5:
+                if (livros[id - 1].getTitulo() == null)
+                {
+                    System.out.println("ID inexistente!");
+                    return;
+                }
+                livros[id - 1].setDisponivel(true);
+                System.out.println("Livro devolvido com sucesso!");
+                return;
+            default:
+                System.out.println("ID invalido tente novamente!, se quiser sair digite 0!");
+                return;
+        }
     }
 
     public String getUnidade() {
@@ -57,15 +94,5 @@ public class Biblioteca {
 
     public Livro[] getLivros() {
         return livros;
-    }
-
-    public void setLivros(Livro livro) {
-        if (livros.length < counter+1)
-        {
-            System.out.println("Atingido o limite de espaço para cadastramento de livros!");
-            return;
-        }
-            this.livros[counter] = livro;
-        counter++;
     }
 }
