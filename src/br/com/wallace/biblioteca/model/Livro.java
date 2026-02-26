@@ -4,8 +4,8 @@ public class Livro {
     private String titulo;
     private int anoPublicacao;
     private Autor autor;
-    private boolean situacao = true;
-    private static int counter = 0;
+    private boolean disponivel = true;
+    private static int counter = 1;
     private int id = counter;
 
     {
@@ -44,5 +44,13 @@ public class Livro {
 
     public int getId() {
         return id;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
     }
 }
