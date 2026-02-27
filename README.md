@@ -1,6 +1,6 @@
 # 📚 Sistema de Biblioteca
 
-> Projeto desenvolvido para simular o gerenciamento de uma biblioteca via console, com foco em organização de domínio, regras de negócio robustas e aplicação rigorosa de Orientação a Objetos.
+Projeto desenvolvido para simular o gerenciamento de uma biblioteca via console, com foco em organização de domínio, regras de negócio robustas e aplicação rigorosa de Orientação a Objetos.
 
 ---
 
@@ -60,7 +60,7 @@ O menu interativo foi projetado para ser ininterrupto e seguro contra entradas i
 5. 📥 **Devolver livro**
 6. ❌ **Sair**
 
-> **Nota de Resiliência:** O sistema trata exceções de input, garantindo que o programa não encerre de forma inesperada caso o usuário digite comandos inválidos.
+**Nota de Resiliência:** O sistema trata exceções de input, garantindo que o programa não encerre de forma inesperada caso o usuário digite comandos inválidos.
 
 ---
 
