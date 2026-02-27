@@ -36,6 +36,14 @@ A arquitetura do sistema baseia-se em três pilares fundamentais:
 - **Capacidade:** Armazenamento estruturado em Arrays.
 - **Operações:** Processamento de empréstimos, devoluções e buscas complexas.
 
+Controller do sistema e exibição visual:
+
+### 🎮 Classe Menu (Interface & Controle)
+*O orquestrador da experiência do usuário.*
+- **Controle de Estado:** Gerencia o ciclo de vida do programa através de uma logica `boolean` de controle.
+- **Separação de Preocupações:** Isola a lógica de exibição visual da lógica de processamento de dados (`options`).
+- **Resiliência:** Implementada com tratamento de erros para garantir que o sistema não feche ao receber comandos inesperados.
+  
 ---
 
 ## ⚙️ Regras de Negócio & Lógica
