@@ -12,6 +12,7 @@ public class SistemaDeGerenciamento {
         Menu menuPrincipal = new Menu();
         Biblioteca biblioteca = new Biblioteca("Biblioteca municipal");
         menuPrincipal.setBiblioteca(biblioteca);
+
         while (menuPrincipal.isDentroDoMenu())
         {
             Menu.exibirMenu();
