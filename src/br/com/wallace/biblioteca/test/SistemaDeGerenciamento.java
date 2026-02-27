@@ -17,7 +17,7 @@ public class SistemaDeGerenciamento {
         {
             Menu.exibirMenu();
             String opcao = input.nextLine();
-                menuPrincipal.options(opcao);
+            menuPrincipal.options(opcao);
         }
     }
 }

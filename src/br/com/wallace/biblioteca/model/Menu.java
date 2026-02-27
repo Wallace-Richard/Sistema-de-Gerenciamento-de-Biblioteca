@@ -41,8 +41,7 @@ public class Menu {
                 if (biblioteca.verificarCadastro(livro)) return;
                 while (livro.isDisponivel())
                 {
-                    System.out.print("\nDigite o id do livro: ");
-                    id = input.nextInt();
+                    id = inputId();
                     biblioteca.buscarLivro(id);
                     if (id == 0) return;
                 }
@@ -51,8 +50,7 @@ public class Menu {
                 if (biblioteca.verificarCadastro(livro)) return;
                 while (true)
                 {
-                    System.out.print("\nDigite o id do livro: ");
-                    id = input.nextInt();
+                    id = inputId();
                     biblioteca.emprestarLivro(id);
                     if (id == 0) return;
                 }
@@ -60,14 +58,12 @@ public class Menu {
                 if (biblioteca.verificarCadastro(livro)) return;
                 while (true)
                 {
-                    System.out.print("\nDigite o id do livro: ");
-                    id = input.nextInt();
+                    id = inputId();
                     biblioteca.disponibilizarLivro(id);
                     if (id == 0) return;
                 }
             case "6":
-                System.out.println("\nSISTEMA ENCERRADO!!!!");
-                dentroDoMenu = false;
+                encerrarSistema();
                 return;
 
             default:
@@ -75,6 +71,15 @@ public class Menu {
         }
     }
 
+    public int inputId(){
+        System.out.print("\nDigite o id do livro: ");
+        return input.nextInt();
+    }
+
+    public void encerrarSistema(){
+        System.out.println("\nSISTEMA ENCERRADO!!!!");
+        dentroDoMenu = false;
+    }
 
     public Biblioteca getBiblioteca() {
         return biblioteca;

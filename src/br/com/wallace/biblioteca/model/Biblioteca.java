@@ -6,6 +6,7 @@ public class Biblioteca {
     private String unidade;
     private Livro[] livros = new Livro[5];
     private int counter = 0;
+    Scanner input = new Scanner(System.in);
 
     public Biblioteca(String unidade) {
         this.unidade = unidade;
@@ -17,7 +18,6 @@ public class Biblioteca {
     }
 
     public Livro cadastrarLivro() {
-        Scanner input = new Scanner(System.in);
         System.out.println("\n\n--- CADASTRAR LIVRO ---");
 
         System.out.print("\nTitulo do livro: ");
