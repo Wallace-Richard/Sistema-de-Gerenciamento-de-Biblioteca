@@ -2,7 +2,7 @@ package br.com.wallace.biblioteca.model;
 
 public class Livro {
     private String titulo;
-    private int anoPublicacao;
+    private String anoPublicacao;
     private Autor autor;
     private boolean disponivel = true;
     private static int counter = 1;
@@ -12,7 +12,7 @@ public class Livro {
         counter++;
     }
 
-    public Livro(String titulo, int anoPublicacao, Autor autor) {
+    public Livro(String titulo, String anoPublicacao, Autor autor) {
         this.titulo = titulo;
         this.anoPublicacao = anoPublicacao;
         this.autor = autor;
@@ -26,11 +26,11 @@ public class Livro {
         this.titulo = titulo;
     }
 
-    public int getAnoPublicacao() {
+    public String getAnoPublicacao() {
         return anoPublicacao;
     }
 
-    public void setAnoPublicacao(int anoPublicacao) {
+    public void setAnoPublicacao(String anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
     }
 
