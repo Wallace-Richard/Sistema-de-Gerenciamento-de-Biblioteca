@@ -1,146 +1,46 @@
-# 📚 Sistema de Biblioteca
+# 📚 Sistema de Gerenciamento de Biblioteca
 
-Projeto desenvolvido para simular o gerenciamento de uma biblioteca via console, com foco em organização de domínio, regras de negócio bem definidas e aplicação correta de conceitos de orientação a objetos.
+Um sistema de console robusto desenvolvido em Java para gerenciar o acervo de uma biblioteca, focando em boas práticas de Programação Orientada a Objetos (POO).
 
-A proposta é modelar o problema de forma simples, mas estruturada, garantindo consistência dos dados e controle do fluxo do sistema.
+## 🚀 Funcionalidades
 
-# 📌 Visão Geral
+- **Cadastro de Livros:** Registro de título, ano de publicação e autor.
+- **Gestão de Autores:** Criação automática de autores vinculados aos livros (Relação Bidirecional).
+- **Validação Inteligente:** - Verificação de formato de ano (YYYY).
+  - Tratamento de IDs inexistentes.
+  - Alertas para listas vazias.
+- **Menu Interativo:** Navegação fluida via console com controle de estado.
 
-## O sistema permite:
+## 🛠️ Tecnologias e Conceitos Aplicados
 
-Cadastro de livros e autores
+- **Linguagem:** Java 17+
+- **Encapsulamento:** Uso de modificadores de acesso e métodos Getter/Setter.
+- **Composição:** Relação entre as classes `Livro` e `Autor`.
+- **Injeção de Dependência:** Scanner compartilhado para otimização de recursos.
+- **Clean Code:** Métodos curtos, nomes descritivos e separação de responsabilidades.
 
-Controle de empréstimos e devoluções
+## 📋 Como Executar
 
-Consulta e listagem de livros
+1. Certifique-se de ter o **JDK 17** ou superior instalado.
+2. Clone o repositório:
+   ```bash
+   git clone [https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/seu-usuario/nome-do-repositorio.git)
 
-Contagem global de exemplares no sistema
+3. Abra o projeto em sua IDE favorita (Recomendado: IntelliJ IDEA).
+4. Execute a classe principal: `SistemaDeGerenciamento.java`.
 
-Toda a interação é feita via terminal, por meio de um menu contínuo.
+## 📂 Estrutura do Projeto
 
-# 🧱 Modelagem do Domínio
+* `SistemaDeGerenciamento.java`: Ponto de entrada (Main) e orquestração do loop principal.
+* `Menu.java`: Gerencia a interface de usuário e lógica de entrada de dados.
+* `Biblioteca.java`: Armazena e gerencia a coleção de livros.
+* `Livro.java` & `Autor.java`: Classes de modelo (Entidades).
 
-## O sistema é composto por três entidades principais:
+Desenvolvido por Wallace Richard como projeto de estudos em Java.
+2.  Cole o texto acima.
+3.  Substitua `[Seu Nome]` pelo seu nome real.
+4.  **Faça o commit:** > **`docs: adicionar README com especificações técnicas do projeto`**
 
-## Autor
+**Deseja que eu adicione uma seção de "Exemplos de Uso" com um passo a passo de como cadastrar o primeiro livro?** Isso ajuda muito quem nunca viu o sistema funcionando.
 
-Representa o escritor da obra.
-
-Responsabilidades:
-
-Armazenar nome e nacionalidade.
-
-Manter vínculo com os livros escritos.
-
-Os atributos devem ser privados, garantindo encapsulamento e acesso controlado.
-
-## Livro
-
-Representa o item físico controlado pela biblioteca.
-
-Atributos obrigatórios:
-
-ID único (gerado automaticamente)
-
-## Título
-
-Ano de publicação
-
-## Autor
-
-Status (Disponível ou Emprestado)
-
-## Regras importantes:
-
-O ID deve ser gerado automaticamente de forma sequencial.
-
-Um livro não pode existir sem título, ano e autor.
-
-O estado inicial deve ser "Disponível".
-
-Nenhum atributo pode ser acessado diretamente fora da classe.
-
-Biblioteca
-
-Responsável pelo gerenciamento do acervo.
-
-Atributos:
-
-Nome da unidade
-
-Estrutura de armazenamento (Array de livros)
-
-Responsabilidades:
-
-Adicionar livros ao acervo (respeitando limite de capacidade).
-
-Realizar empréstimos.
-
-Processar devoluções.
-
-Listar e buscar livros.
-
-# ⚙️ Regras de Negócio
-Cadastro
-
-Geração automática de ID para cada novo livro.
-
-Garantia de integridade dos dados no momento da criação.
-
-Encapsulamento completo das entidades.
-
-Controle de Estoque
-Empréstimo
-
-Só pode ser realizado se o livro estiver disponível.
-
-Ao emprestar, o status deve ser alterado para "Emprestado".
-
-Devolução
-
-Ao devolver, o status deve retornar para "Disponível".
-
-Consultas
-
-O sistema deve permitir:
-
-Listagem completa do acervo.
-
-Busca por título, retornando todas as informações do livro e do autor.
-
-Contagem global de livros cadastrados no sistema, independentemente da biblioteca.
-
-# 🖥️ Interface (Console)
-
-O sistema possui um menu interativo contínuo:
-
-1 - Cadastrar novo livro
-2 - Listar todos os livros
-3 - Buscar livro por nome
-4 - Emprestar livro
-5 - Devolver livro
-6 - Sair
-
-## Requisitos da interface:
-
-O menu deve permanecer ativo até o usuário escolher sair.
-
-Entradas inválidas devem ser tratadas.
-
-O sistema não pode encerrar de forma inesperada.
-
-# 🧠 Conceitos Aplicados
-
-Programação Orientada a Objetos
-
-Encapsulamento
-
-Responsabilidade de classes
-
-Controle de estado
-
-Validação de regras de negócio
-
-Manipulação de Arrays
-
-Estruturação de sistema em camadas simples
+```
