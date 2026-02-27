@@ -9,14 +9,18 @@ public class Menu {
     private Autor autor;
 
     public static void exibirMenu() {
-        System.out.println("--- SISTEMA DE GERENCIAMENTO DE BIBLIOTECA ---");
-        System.out.println("\n1 - Cadastrar um novo Livro");
+        System.out.println("\n\n------------------------------------------------");
+        System.out.println("     SISTEMA DE GERENCIAMENTO DE BIBLIOTECA");
+        System.out.println("------------------------------------------------");
+        System.out.println("1 - Cadastrar um novo Livro");
         System.out.println("2 - Listar todos os livros");
-        System.out.println("3 - Buscar livro por nome");
+        System.out.println("3 - Buscar livro por ID");
         System.out.println("4 - Emprestar um livro");
         System.out.println("5 - Devolver um livro");
         System.out.println("6 - Sair do sistema");
-        System.out.println("-----------------------------------------------");
+        System.out.println("------------------------------------------------");
+
+        System.out.print("\nDigite a opção: ");
     }
 
     public void options(String option) {
