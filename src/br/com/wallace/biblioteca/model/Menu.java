@@ -40,7 +40,7 @@ public class Menu {
                 return;
             case "3":
                 if (biblioteca.verificarCadastro(livro)) return;
-                while (livro.isDisponivel())
+                while (true)
                 {
                     try {
                         id = inputId();
