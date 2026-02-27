@@ -65,10 +65,11 @@ public class Biblioteca {
         }
     }
 
-    public void cadastrarLivro(Livro livro) {
+
+    public void addLivro(Livro livro) {
         if (livros.length < counter + 1)
         {
-            System.out.println("Atingido o limite de espaço para cadastramento de livros!");
+            System.out.println("ATINGIDO O LIMITE PARA CADASTRAMENTO DE LIVROS!");
             return;
         }
         this.livros[counter] = livro;
