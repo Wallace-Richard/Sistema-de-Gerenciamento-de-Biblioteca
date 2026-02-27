@@ -3,7 +3,8 @@ package br.com.wallace.biblioteca.model;
 public class Autor {
     private String nome;
     private String nacionalidade;
-    private Livro[] livros;
+    private Livro[] livros = new Livro[5];
+    private int counter = 0;
 
     public Autor(String nome, String nacionalidade) {
         this.nome = nome;
@@ -14,6 +15,16 @@ public class Autor {
         this.nome = nome;
         this.nacionalidade = nacionalidade;
         this.livros = livros;
+    }
+
+    public void addLivro(Livro livro) {
+        if (livros.length < counter + 1)
+        {
+            System.out.println("Limites de livros pro autor atingido!");
+            return;
+        }
+        this.livros[counter] = livro;
+        counter++;
     }
 
     public String getNome() {
