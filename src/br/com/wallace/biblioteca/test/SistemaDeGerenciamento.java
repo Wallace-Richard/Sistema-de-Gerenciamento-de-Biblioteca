@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class SistemaDeGerenciamento {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+
         Menu menuPrincipal = new Menu();
         Biblioteca biblioteca = new Biblioteca("Biblioteca municipal");
         menuPrincipal.setBiblioteca(biblioteca);
