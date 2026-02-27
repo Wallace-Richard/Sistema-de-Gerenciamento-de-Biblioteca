@@ -1,12 +1,14 @@
 package br.com.wallace.biblioteca.model;
 
-import javax.swing.event.UndoableEditListener;
 import java.util.Scanner;
 
 public class Menu {
     private Biblioteca biblioteca;
     private Livro livro;
     private Autor autor;
+    private boolean dentroDoMenu = true;
+    private Scanner input = new Scanner(System.in);
+
 
     public static void exibirMenu() {
         System.out.println("\n\n------------------------------------------------");
@@ -80,5 +82,9 @@ public class Menu {
 
     public void setBiblioteca(Biblioteca biblioteca) {
         this.biblioteca = biblioteca;
+    }
+
+    public boolean isDentroDoMenu() {
+        return dentroDoMenu;
     }
 }
