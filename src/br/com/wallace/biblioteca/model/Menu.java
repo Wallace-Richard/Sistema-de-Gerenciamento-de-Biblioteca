@@ -19,34 +19,53 @@ public class Menu {
         System.out.println("-----------------------------------------------");
     }
 
-    public void options(int option) {
+    public void options(String option) {
+        int id = 0;
         switch (option)
         {
-            case 1:
-                System.out.println("\n--- Cadastrar Livro ---");
-                Scanner input = new Scanner(System.in);
-
-                System.out.print("Titulo do livro: ");
-                livro.setTitulo(input.next());
-
-                System.out.print("Ano de publicação: ");
-                livro.setAnoPublicacao(input.nextInt());
-
-                System.out.print("Nome do Autor: ");
-                autor.setNome(input.nextLine());
-
-                System.out.print("Nacionalidade: ");
-                autor.setNacionalidade(input.nextLine());
-
-                autor.addLivro(livro);
-                biblioteca.cadastrarLivro(livro);
-
-            case 2:
+            case "1":
+                livro = biblioteca.cadastrarLivro();
+                biblioteca.addLivro(livro);
+                return;
+            case "2":
+                if (biblioteca.verificarCadastro(livro)) return;
                 biblioteca.listaDeLivros();
-            case 3: return;
+                return;
+            case "3":
+                if (biblioteca.verificarCadastro(livro)) return;
+                while (livro.isDisponivel())
+                {
+                    System.out.print("\nDigite o id do livro: ");
+                    id = input.nextInt();
+                    biblioteca.buscarLivro(id);
+                    if (id == 0) break;
+                }
+                return;
+            case "4":
+                if (biblioteca.verificarCadastro(livro)) return;
+                while (true)
+                {
+                    System.out.print("\nDigite o id do livro: ");
+                    id = input.nextInt();
+                    biblioteca.emprestarLivro(id);
+                    if (id == 0) break;
+                }
+            case "5":
+                if (biblioteca.verificarCadastro(livro)) return;
+                while (true)
+                {
+                    System.out.print("\nDigite o id do livro: ");
+                    id = input.nextInt();
+                    biblioteca.disponibilizarLivro(id);
+                    if (id == 0) break;
+                }
+            case "6":
+                System.out.println("\nSISTEMA ENCERRADO!!!!");
+                dentroDoMenu = false;
+                return;
 
-            case 4:
-
+            default:
+                System.out.println("\nOPÇÃO INVALIDA TENTE NOVAMENTE!");
         }
     }
 
