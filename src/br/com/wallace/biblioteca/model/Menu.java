@@ -1,5 +1,6 @@
 package br.com.wallace.biblioteca.model;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -41,26 +42,44 @@ public class Menu {
                 if (biblioteca.verificarCadastro(livro)) return;
                 while (livro.isDisponivel())
                 {
-                    id = inputId();
-                    biblioteca.buscarLivro(id);
-                    if (id == 0) return;
+                    try {
+                        id = inputId();
+                        input.nextLine();
+                        biblioteca.buscarLivro(id);
+                        if (id == 0) return;
+                    } catch (InputMismatchException e) {
+                        System.err.println("DIGITE APENAS NUMEROS!.\n");
+                        input.nextLine();
+                    }
                 }
                 return;
             case "4":
                 if (biblioteca.verificarCadastro(livro)) return;
                 while (true)
                 {
-                    id = inputId();
-                    biblioteca.emprestarLivro(id);
-                    if (id == 0) return;
+                    try {
+                        id = inputId();
+                        input.nextLine();
+                        biblioteca.emprestarLivro(id);
+                        if (id == 0) return;
+                    } catch (InputMismatchException e) {
+                        System.err.println("DIGITE APENAS NUMEROS!.\n");
+                        input.nextLine();
+                    }
                 }
-            case "5":
+                case "5":
                 if (biblioteca.verificarCadastro(livro)) return;
                 while (true)
                 {
-                    id = inputId();
-                    biblioteca.disponibilizarLivro(id);
-                    if (id == 0) return;
+                    try {
+                        id = inputId();
+                        input.nextLine();
+                        biblioteca.disponibilizarLivro(id);
+                        if (id == 0) return;
+                    } catch (InputMismatchException e) {
+                        System.err.println("DIGITE APENAS NUMEROS!.\n");
+                        input.nextLine();
+                    }
                 }
             case "6":
                 encerrarSistema();
