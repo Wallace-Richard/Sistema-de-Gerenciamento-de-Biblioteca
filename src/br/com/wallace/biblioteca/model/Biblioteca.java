@@ -1,5 +1,7 @@
 package br.com.wallace.biblioteca.model;
 
+import java.util.Scanner;
+
 public class Biblioteca {
     private String unidade;
     private Livro[] livros = new Livro[5];
@@ -14,13 +16,38 @@ public class Biblioteca {
         this.livros = livros;
     }
 
-    public void listaDeLivros() {
-        if (livros[0] == null)
+    public Livro cadastrarLivro() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n\n--- CADASTRAR LIVRO ---");
+
+        System.out.print("\nTitulo do livro: ");
+        String titulo = input.nextLine();
+
+        System.out.print("\nAno de publicação: ");
+        String ano = input.nextLine();
+        while (ano.length() != 4)
         {
-            System.out.println("Não existem livros cadrastados!");
-            return;
+            System.out.println("Ano inválido! Use o formato YYYY.");
+            System.out.print("\nAno de publicação: ");
+            ano = input.nextLine();
         }
-        System.out.println("--- Lista de livros ---");
+
+        System.out.print("\nNome do Autor: ");
+        String nome = input.nextLine();
+
+        System.out.print("\nNacionalidade: ");
+        String nacionalidade = input.nextLine();
+
+        Autor autor = new Autor(nome, nacionalidade);
+        Livro livro = new Livro(titulo, ano, autor);
+
+        autor.addLivro(livro);
+
+        return livro;
+    }
+
+    public void listaDeLivros() {
+        System.out.println("--- LISTA DE LIVROS ---");
         int i = 0;
         for (Livro livro : livros)
         {
@@ -31,7 +58,7 @@ public class Biblioteca {
             System.out.println("Ano de publicação: " + livro.getAnoPublicacao());
 
             System.out.print("Situação: ");
-            String situacao = livro.isDisponivel() ? "Disponível para empréstimo!" : "Indisponível para empréstimo!";
+            String situacao = livro.isDisponivel() ? "Disponível!" : "Emprestado!";
             System.out.println(situacao);
 
             i++;
