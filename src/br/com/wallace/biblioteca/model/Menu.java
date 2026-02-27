@@ -44,7 +44,7 @@ public class Menu {
                     System.out.print("\nDigite o id do livro: ");
                     id = input.nextInt();
                     biblioteca.buscarLivro(id);
-                    if (id == 0) break;
+                    if (id == 0) return;
                 }
                 return;
             case "4":
@@ -54,7 +54,7 @@ public class Menu {
                     System.out.print("\nDigite o id do livro: ");
                     id = input.nextInt();
                     biblioteca.emprestarLivro(id);
-                    if (id == 0) break;
+                    if (id == 0) return;
                 }
             case "5":
                 if (biblioteca.verificarCadastro(livro)) return;
@@ -63,7 +63,7 @@ public class Menu {
                     System.out.print("\nDigite o id do livro: ");
                     id = input.nextInt();
                     biblioteca.disponibilizarLivro(id);
-                    if (id == 0) break;
+                    if (id == 0) return;
                 }
             case "6":
                 System.out.println("\nSISTEMA ENCERRADO!!!!");
