@@ -1,7 +1,10 @@
 package br.com.wallace.biblioteca.test;
 
 import br.com.wallace.biblioteca.model.Autor;
+import br.com.wallace.biblioteca.model.Biblioteca;
 import br.com.wallace.biblioteca.model.Livro;
+import br.com.wallace.biblioteca.model.Menu;
+import java.util.Scanner;
 
 public class SistemaDeGerenciamento {
     public static void main(String[] args) {

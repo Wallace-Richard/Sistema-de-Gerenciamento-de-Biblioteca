@@ -94,37 +94,97 @@ public class Biblioteca {
     public void emprestarLivro(int id) {
         switch (id)
         {
+            case 0:
+                encerrarOperacao();
+                return;
             case 1, 2, 3, 4, 5:
-                if (livros[id - 1].getTitulo() == null)
-                {
-                    System.out.println("ID inexistente!");
-                    return;
-                }
-                livros[id - 1].setDisponivel(false);
-                System.out.println("Livro emprestado com sucesso!");
+                if (verificarId(id)) return;
+                if (verificarSituacaoEmprestado(id)) return;
+                setSituacaoEmprestado(id);
                 return;
             default:
-                System.out.println("ID invalido tente novamente!");
-                return;
+                exibirErroId();
         }
     }
 
     public void disponibilizarLivro(int id) {
         switch (id)
         {
+            case 0:
+                encerrarOperacao();
+                return;
             case 1, 2, 3, 4, 5:
-                if (livros[id - 1].getTitulo() == null)
-                {
-                    System.out.println("ID inexistente!");
-                    return;
-                }
-                livros[id - 1].setDisponivel(true);
-                System.out.println("Livro devolvido com sucesso!");
+                if (verificarId(id)) return;
+                if (verificarSituacaoDisponivel(id)) return;
+                setSituacaoDispoivel(id);
                 return;
             default:
-                System.out.println("ID invalido tente novamente!, se quiser sair digite 0!");
-                return;
+                exibirErroId();
         }
+    }
+
+    public void exibirLivro(int id) {
+        System.out.println("\nTítulo: " + livros[id - 1].getTitulo());
+        System.out.println("Autor: " + livros[id - 1].getAutor().getNome());
+        System.out.println("Ano de publicação: " + livros[id - 1].getAnoPublicacao());
+        System.out.println("\nPARA SAIR DIGITE 0!");
+    }
+
+    public boolean verificarCadastro(Livro livro) {
+        if (livro == null)
+        {
+            System.out.println("\nNENHUM LIVRO CADASTRADO AINDA!");
+            return true;
+        }
+        return false;
+    }
+
+    private boolean verificarId(int id) {
+        if (livros[id - 1] == null)
+        {
+            exibirErroId();
+            return true;
+        }
+        return false;
+    }
+
+    public boolean verificarSituacaoDisponivel(int id) {
+        if (livros[id - 1].isDisponivel() == true)
+        {
+            System.out.println("\nLIVRO JÁ DISPONIVEL!");
+            System.out.println("PARA SAIR DIGITE 0!");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean verificarSituacaoEmprestado(int id) {
+        if (livros[id - 1].isDisponivel() == false)
+        {
+            System.out.println("\nLIVRO JÁ EMPRESTADO!");
+            System.out.println("PARA SAIR DIGITE 0!");
+            return true;
+        }
+        return false;
+    }
+
+    public void setSituacaoDispoivel(int id) {
+        livros[id - 1].setDisponivel(true);
+        System.out.println("\nLIVRO DEVOLVIDO COM SUCESSO!");
+    }
+
+    public void setSituacaoEmprestado(int id) {
+        livros[id - 1].setDisponivel(false);
+        System.out.println("\nLIVRO EMPRESTADO COM SUCESSO!");
+    }
+
+    public void exibirErroId() {
+        System.out.println("\nID INEXISTENTE!");
+        System.out.println("PARA SAIR DIGITE 0!");
+    }
+
+    public void encerrarOperacao() {
+        System.out.println("ENCERRANDO A OPERAÇÃO ATUAL!");
     }
 
     public String getUnidade() {
