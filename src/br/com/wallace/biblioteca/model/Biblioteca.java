@@ -76,6 +76,21 @@ public class Biblioteca {
         counter++;
     }
 
+    public void buscarLivro(int id) {
+        switch (id)
+        {
+            case 0:
+                encerrarOperacao();
+                return;
+            case 1, 2, 3, 4, 5:
+                if (verificarId(id)) return;
+                exibirLivro(id);
+                return;
+            default:
+                exibirErroId();
+        }
+    }
+
     public void emprestarLivro(int id) {
         switch (id)
         {
